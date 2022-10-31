@@ -4,24 +4,26 @@ import com.toko.bunga.model.TokoBunga;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
  * @author afit
  */
 public class TokoBungaImpl implements TokoBungaDao {
-    private final SessionFactory sessionFactory;
+    @Autowired
+    private SessionFactory sessionFactory;
 
-    public TokoBungaImpl(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-    }
+//    public TokoBungaImpl(SessionFactory sessionFactory) {
+//        this.sessionFactory = sessionFactory;
+//    }
     
     
 
     @Override
     public void save(TokoBunga tokobunga) {
         Session session = sessionFactory.openSession();
-        try{
+ /**       try{
             session.beginTransaction();
             session.save(tokobunga);
             session.getTransaction().commit();
@@ -33,13 +35,13 @@ public class TokoBungaImpl implements TokoBungaDao {
         finally {
             session.close();
         }
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+**/        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void update(TokoBunga tokobunga) {
         Session session = sessionFactory.openSession();
-        try{
+/**        try{
             session.beginTransaction();
             session.update(tokobunga);
             session.getTransaction().commit();
@@ -51,13 +53,13 @@ public class TokoBungaImpl implements TokoBungaDao {
         finally {
             session.close();
         }
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+ **/        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void delete(TokoBunga tokobunga) {
         Session session = sessionFactory.openSession();
-        try{
+/**        try{
             session.beginTransaction();
             session.delete(tokobunga);
             session.getTransaction().commit();
@@ -69,10 +71,10 @@ public class TokoBungaImpl implements TokoBungaDao {
         finally {
             session.close();
         }
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+ **/       //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
+/**    @Override
     public TokoBunga get(String kd_bunga) {
         Session session = sessionFactory.openSession();
         try{
@@ -90,11 +92,12 @@ public class TokoBungaImpl implements TokoBungaDao {
             session.close();
         }
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    } **/
 
     @Override
     public List<TokoBunga> getList() {
-        Session session = sessionFactory.openSession();
+        return sessionFactory.getCurrentSession().createCriteria(TokoBunga.class).list();
+/**        Session session = sessionFactory.openSession();
         try{
             session.beginTransaction();
             List<TokoBunga> listbunga = session.createCriteria(TokoBunga.class).list();
@@ -108,7 +111,7 @@ public class TokoBungaImpl implements TokoBungaDao {
         }
         finally {
             session.close();
-        }
+        } **/ 
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
