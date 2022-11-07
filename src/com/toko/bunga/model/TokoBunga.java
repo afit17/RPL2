@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 /**
  *
- * @author USER
+ * @author afit
  */
 @Entity
 @Table(name = "toko_buga")
@@ -26,7 +26,7 @@ public class TokoBunga implements Serializable{
     @Column(name = "jenis", length = 20)
     private String jenis;
     @Column(name = "harga", length = 15)
-    private String harga;
+    private int harga;
 
     public String getKd_bunga() {
         return kd_bunga;
@@ -52,11 +52,11 @@ public class TokoBunga implements Serializable{
         this.jenis = jenis;
     }
 
-    public String getHarga() {
+    public int getHarga() {
         return harga;
     }
 
-    public void setHarga(String harga) {
+    public void setHarga(int harga) {
         this.harga = harga;
     }
     

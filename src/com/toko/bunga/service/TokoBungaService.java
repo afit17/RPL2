@@ -3,16 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.toko.bunga.dao;
+package com.toko.bunga.service;
 
 import com.toko.bunga.model.TokoBunga;
 import java.util.List;
+
 /**
  *
  * @author afit
  */
-public interface TokoBungaDao {
-    public String save(TokoBunga tokobunga);
+public interface TokoBungaService {
+    public void save(TokoBunga tokobunga);
     public void update(TokoBunga tokobunga);
     public void delete(TokoBunga tokobunga);
     //public TokoBunga get(String kd_bunga);
